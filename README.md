@@ -60,7 +60,10 @@
 ├── index.html      # 主页面
 ├── style.css       # 样式文件
 ├── script.js       # 核心逻辑
-└── README.md       # 说明文档
+├── README.md       # 说明文档
+├── deploy.md       # 部署指南
+├── .gitignore      # Git忽略文件
+└── .nojekyll       # 禁用Jekyll构建
 ```
 
 ## 许可证
