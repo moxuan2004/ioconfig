@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大客流应急处置模拟</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.5">
 </head>
 <body>
 
@@ -106,37 +106,69 @@
         <div class="summary-card">
             <h2>综合客流缓解效果</h2>
             <div class="summary-grid">
-                <div class="summary-item">
-                    <label>总体客流压力</label>
-                    <div class="pressure-bar">
-                        <div id="total-pressure-indicator"></div>
-                    </div>
+                <div class="summary-item efficiency-item">
+                    <label>运营效率</label>
+                    <div id="efficiency-status" class="status-box">提升中</div>
                 </div>
-                <div class="summary-item">
+                <div class="summary-item satisfaction-item">
                     <label>乘客满意度</label>
+                    <div id="satisfaction-score" class="status-box">-</div>
+                </div>
+                <div id="central-emoji-container">
                     <div id="satisfaction-emoji">😊</div>
                 </div>
-                <div class="summary-item">
-                    <label>运营效率</label>
-                    <div id="efficiency-status" class="status-box">-</div>
-                </div>
-                <div class="summary-item">
+                <div class="summary-item load-item">
                     <label>系统负荷</label>
-                    <div id="load-status" class="status-box">-</div>
+                    <div id="load-status" class="status-box">平稳可控</div>
                 </div>
-                <div class="summary-item" style="grid-column: 1 / -1;">
+                <div class="summary-item" id="auto-control-item">
+                    <label>自动化调控</label>
+                    <canvas id="automation-chart"></canvas>
+                </div>
+                <div class="summary-item" id="contribution-chart-container">
                     <label>各措施贡献度</label>
                     <div id="contribution-chart">
-                        <div id="train-contrib" class="contribution-bar" title="列车数量"></div>
-                        <div id="interval-contrib" class="contribution-bar" title="发车间隔"></div>
-                        <div id="stop-time-contrib" class="contribution-bar" title="停站时间"></div>
-                        <div id="speed-contrib" class="contribution-bar" title="列车速度"></div>
+                        <div class="contribution-item">
+                            <span class="contribution-label">列车数量</span>
+                            <div class="contribution-bar-wrapper">
+                                <div id="train-contrib" class="contribution-bar"></div>
+                            </div>
+                        </div>
+                        <div class="contribution-item">
+                            <span class="contribution-label">发车间隔</span>
+                            <div class="contribution-bar-wrapper">
+                                <div id="interval-contrib" class="contribution-bar"></div>
+                            </div>
+                        </div>
+                        <div class="contribution-item">
+                            <span class="contribution-label">停站时间</span>
+                            <div class="contribution-bar-wrapper">
+                                <div id="stop-time-contrib" class="contribution-bar"></div>
+                            </div>
+                        </div>
+                        <div class="contribution-item">
+                            <span class="contribution-label">列车速度</span>
+                            <div class="contribution-bar-wrapper">
+                                <div id="speed-contrib" class="contribution-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-item pressure-item" style="grid-column: 1 / -1;">
+                    <label>总体客流压力</label>
+                    <div class="pressure-bar-container">
+                        <span class="pressure-label weak">弱</span>
+                        <div class="pressure-bar">
+                            <div id="total-pressure-indicator"></div>
+                        </div>
+                        <span class="pressure-label strong">强</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="script.js?v=1.6"></script>
 </body>
 </html>
